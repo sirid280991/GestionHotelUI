@@ -1,128 +1,152 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "GestionHotelUI": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/GestionHotelUI",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ]
-            }
-          }
+"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+"version": 1,
+"newProjectRoot": "projects",
+"projects": {
+  "GestionHotelUI": {
+    "projectType": "application",
+    "schematics": {
+      "@schematics/angular:application": {
+        "strict": true
+      }
+    },
+
+    "root": "",
+    "sourceRoot": "src",
+    "prefix": "app",
+    "architect": {
+      "build": {
+        "builder": "@angular-devkit/build-angular:browser",
+        "options": {
+          "outputPath": "dist/GestionHotelUI",
+          "index": "src/index.html",
+          "main": "src/main.ts",
+          "polyfills": "src/polyfills.ts",
+          "tsConfig": "tsconfig.app.json",
+          "aot": true,
+          "assets": [
+            "src/favicon.ico",
+            "src/assets"
+          ],
+          "styles": [             
+                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "node_modules/vendors/linericon/style.css",
+                "node_modules/font-awesome/css/font-awesome.css"   ,                       
+                "node_modules/vendors/owl-carousel/owl.carousel.min.css",
+                "node_modules/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css",
+                "node_modules/vendors/nice-select/css/nice-select.css",
+                "node_modules/vendors/owl-carousel/owl.carousel.min.css",       
+                "node_modules/css/style.css",
+                "node_modules/css/responsive.css"
+              
+          ],
+          "scripts": [           
+            "node_modules/jquery/dist/jquery.min.js",
+            "src/assets/js/popper.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "node_modules/vendors/owl-carousel/owl.carousel.min.js",
+            "src/assets/js/jquery.ajaxchimp.min.js",
+            "src/assets/js/mail-script.js",
+            "node_modules/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js",
+            "node_modules/vendors/nice-select/js/jquery.nice-select.js",
+            "src/assets/js/mail-script.js",
+            "src/assets/js/stellar.js",
+            "node_modules/vendors/lightbox/simpleLightbox.min.js",
+            "src/assets/js/custom.js"
+
+          ]
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "GestionHotelUI:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "GestionHotelUI:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "GestionHotelUI:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
+        "configurations": {
+          "production": {
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "optimization": true,
+            "outputHashing": "all",
+            "sourceMap": false,
+            "namedChunks": false,
+            "extractLicenses": true,
+            "vendorChunk": false,
+            "buildOptimizer": true,
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kb",
+                "maximumError": "1mb"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "2kb",
+                "maximumError": "4kb"
+              }
             ]
           }
+        }
+      },
+      "serve": {
+        "builder": "@angular-devkit/build-angular:dev-server",
+        "options": {
+          "browserTarget": "GestionHotelUI:build"
         },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "GestionHotelUI:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "GestionHotelUI:serve:production"
-            }
+        "configurations": {
+          "production": {
+            "browserTarget": "GestionHotelUI:build:production"
+          }
+        }
+      },
+      "extract-i18n": {
+        "builder": "@angular-devkit/build-angular:extract-i18n",
+        "options": {
+          "browserTarget": "GestionHotelUI:build"
+        }
+      },
+      "test": {
+        "builder": "@angular-devkit/build-angular:karma",
+        "options": {
+          "main": "src/test.ts",
+          "polyfills": "src/polyfills.ts",
+          "tsConfig": "tsconfig.spec.json",
+          "karmaConfig": "karma.conf.js",
+          "assets": [
+            "src/favicon.ico",
+            "src/assets"
+          ],
+          "styles": [
+            "src/styles.css"
+          ],
+          "scripts": []
+        }
+      },
+      "lint": {
+        "builder": "@angular-devkit/build-angular:tslint",
+        "options": {
+          "tsConfig": [
+            "tsconfig.app.json",
+            "tsconfig.spec.json",
+            "e2e/tsconfig.json"
+          ],
+          "exclude": [
+            "**/node_modules/**"
+          ]
+        }
+      },
+      "e2e": {
+        "builder": "@angular-devkit/build-angular:protractor",
+        "options": {
+          "protractorConfig": "e2e/protractor.conf.js",
+          "devServerTarget": "GestionHotelUI:serve"
+        },
+        "configurations": {
+          "production": {
+            "devServerTarget": "GestionHotelUI:serve:production"
           }
         }
       }
     }
-  },
-  "defaultProject": "GestionHotelUI"
+  }
+},
+"defaultProject": "GestionHotelUI"
 }
